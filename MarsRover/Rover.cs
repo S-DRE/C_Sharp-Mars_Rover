@@ -5,27 +5,53 @@ namespace MarsRover;
 public class Rover
 {
     private Direction compass = new North();
+    
+    private int xCoord = 0;
+    private int yCoord = 0;
+        
     private int gridDimension = 10;
 
     public string Execute(string command)
     {
-        var y = 0;
+       
 
         foreach (var instruction in command)
         {
-            if (instruction.Equals('L'))
-                compass = compass.RotateLeft();
-            if (instruction.Equals('R'))
-                compass = compass.RotateRight();
-            if (instruction.Equals('M'))
+            switch (instruction)
             {
-                if (compass.Symbol.Equals("N"))
-                    y = (y + 1) % gridDimension;
-                if (compass.Symbol.Equals("S"))
-                    y = (y - 1 + gridDimension) % gridDimension;
+                case 'L':
+                    compass = compass.RotateLeft();
+                    break;
+                case 'R':
+                    compass = compass.RotateRight();
+                    break;
+                case 'M':
+                {
+                    PerformMovement();
+                    break;
+                }
             }
         }
 
-        return $"0:{y}:{compass.Symbol}";
+        return $"{xCoord}:{yCoord}:{compass.Symbol}";
+    }
+
+    private void PerformMovement()
+    {
+        switch (compass.Symbol)
+        {
+            case "N":
+                yCoord = (yCoord + 1) % gridDimension;
+                break;
+            case "S":
+                yCoord = (yCoord - 1 + gridDimension) % gridDimension;
+                break;
+            case "E":
+                xCoord = (xCoord + 1) % gridDimension;
+                break;
+            case "W":
+                xCoord = (xCoord - 1 + gridDimension) % gridDimension;
+                break;
+        }
     }
 }

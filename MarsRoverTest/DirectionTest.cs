@@ -21,10 +21,10 @@ public class DirectionTest
     
     [Theory]
     [MemberData(nameof(DirectionsDataForRightRotation))]
-    public void ThatItChangesToPreviusOrientationWhenRotatesRight(Direction originalDirection,
+    public void ThatItChangesToNextOrientationWhenRotatesRight(Direction originalDirection,
         Direction expectedDirection)
     {
-        Assert.Equivalent(expectedDirection, originalDirection.RotateLeft());
+        Assert.Equivalent(expectedDirection, originalDirection.RotateRight());
     }
 
     public static IEnumerable<object[]> DirectionsDataForRightRotation =>

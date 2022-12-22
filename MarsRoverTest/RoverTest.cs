@@ -73,7 +73,7 @@ public class RoverTest
     }
     
     [Fact] // <-- Single test
-    public void TheRoverMovesSouthOnceFrom00NTo01N()
+    public void TheRoverMovesSouthOnceFrom00NTo09S()
     {
         var startingPosition = rover.Execute("LLM");
 
@@ -82,7 +82,7 @@ public class RoverTest
     }
     
     [Fact] // <-- Single test
-    public void TheRoverMovesSouthTwiceFrom00NTo02N()
+    public void TheRoverMovesSouthTwiceFrom00NTo08S()
     {
         var startingPosition = rover.Execute("LLMM");
 
@@ -91,7 +91,7 @@ public class RoverTest
     }
     
     [Fact] // <-- Single test
-    public void TheRoverMovesSouthTenTimesFrom00NTo00N()
+    public void TheRoverMovesSouthTenTimesFrom00NTo00S()
     {
         var startingPosition = rover.Execute("LLMMMMMMMMMM");
 
