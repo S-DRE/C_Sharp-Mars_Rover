@@ -44,5 +44,61 @@ public class RoverTest
 
         Assert.Equal(expectedResult, startingPosition);
     }
+    
+    [Fact] // <-- Single test
+    public void TheRoverMovesNorthOnceFrom00NTo01N()
+    {
+        var startingPosition = rover.Execute("M");
+
+        var newPosition = "0:1:N";
+        Assert.Equal(newPosition, startingPosition);
+    }
+    
+    [Fact] // <-- Single test
+    public void TheRoverMovesNorthTwiceFrom00NTo02N()
+    {
+        var startingPosition = rover.Execute("MM");
+
+        var newPosition = "0:2:N";
+        Assert.Equal(newPosition, startingPosition);
+    }
+    
+    [Fact] // <-- Single test
+    public void TheRoverMovesNorthTenTimesFrom00NTo00N()
+    {
+        var startingPosition = rover.Execute("MMMMMMMMMM");
+
+        var newPosition = "0:0:N";
+        Assert.Equal(newPosition, startingPosition);
+    }
+    
+    [Fact] // <-- Single test
+    public void TheRoverMovesSouthOnceFrom00NTo01N()
+    {
+        var startingPosition = rover.Execute("LLM");
+
+        var newPosition = "0:9:S";
+        Assert.Equal(newPosition, startingPosition);
+    }
+    
+    [Fact] // <-- Single test
+    public void TheRoverMovesSouthTwiceFrom00NTo02N()
+    {
+        var startingPosition = rover.Execute("LLMM");
+
+        var newPosition = "0:8:S";
+        Assert.Equal(newPosition, startingPosition);
+    }
+    
+    [Fact] // <-- Single test
+    public void TheRoverMovesSouthTenTimesFrom00NTo00N()
+    {
+        var startingPosition = rover.Execute("LLMMMMMMMMMM");
+
+        var newPosition = "0:0:S";
+        Assert.Equal(newPosition, startingPosition);
+    }
+    
+    
 
 }
