@@ -10,8 +10,12 @@ public class Rover
     {
         foreach (var instruction in command)
         {
-            compass = compass.RotateLeft();
+            if (instruction.Equals('L'))
+                compass = compass.RotateLeft();
+            if (instruction.Equals('R'))
+                compass = compass.RotateRight();
         }
+
         return $"0:0:{compass.Symbol}";
     }
 }

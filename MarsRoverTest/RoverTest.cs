@@ -32,5 +32,17 @@ public class RoverTest
         var expectedStartingPosition = "0:0:N";
         Assert.Equal(expectedStartingPosition, startingPosition);
     }
+    
+    [Theory] // Test with multiple data - Parametrized
+    [InlineData("R", "0:0:E")]
+    [InlineData("RR", "0:0:S")]
+    [InlineData("RRR", "0:0:W")]
+    [InlineData("RRRR", "0:0:N")]
+    public void TheRoverRotatesToTheRight(string command, string expectedResult)
+    {
+        var startingPosition = rover.Execute(command);
+
+        Assert.Equal(expectedResult, startingPosition);
+    }
 
 }
