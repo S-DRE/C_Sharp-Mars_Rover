@@ -1,18 +1,17 @@
-﻿namespace MarsRover;
+﻿using MarsRoverTest;
+
+namespace MarsRover;
 
 public class Rover
 {
+    private Direction compass = new North();
+
     public string Execute(string command)
     {
-        var direction = "N";
-        
         foreach (var instruction in command)
         {
-            if (direction.Equals("N")) direction = "W";
-            else if (direction.Equals("W")) direction = "S";
-            else if (direction.Equals("S")) direction = "E";
-            else if (direction.Equals("E")) direction = "N";
+            compass = compass.RotateLeft();
         }
-        return $"0:0:{direction}";
+        return $"0:0:{compass.Symbol}";
     }
 }

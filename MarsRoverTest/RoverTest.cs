@@ -8,10 +8,10 @@ public class RoverTest
 
     public RoverTest()
     {
-        this.rover = new Rover();
+        rover = new Rover();
     }
 
-    [Theory] // test with multiple data - parametrized
+    [Theory] // Test with multiple data - Parametrized
     [InlineData("L", "0:0:W")]
     [InlineData("LL", "0:0:S")]
     [InlineData("LLL", "0:0:E")]
